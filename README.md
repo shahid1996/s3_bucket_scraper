@@ -32,9 +32,9 @@ There will be a file called results.xml, which is the result of running bucket_s
 
 bucket.txt is a file that contains the bucket you used to download the XML. You don't have to edit it. bucket_scraper.py will fill it out automatically.
 
-There is also a directory called key_downloads, which is the result of downloading files specified in <key> tags in the S3 XML.
+There is also a directory called key_downloads, which is the result of downloading files specified in \<key> tags in the S3 XML.
 
-**key_downloader.py assumes that there are files with relative paths in the <key>s in the XML, i.e. a <key> of image.jpg means it will be available at example.s3.amazonaws.com/image.jpg, which is the S3 bucket you specified.**
+**key_downloader.py assumes that there are files with relative paths in the \<key>s in the XML, i.e. a \<key> of image.jpg means it will be available at example.s3.amazonaws.com/image.jpg, which is the S3 bucket you specified.**
 
 bucket_scraper.py will scrape XML of an S3 bucket.
 
@@ -54,7 +54,7 @@ However, I've never tried that many (if you specify the signed 32-bit int max, t
 
 I haven't tried it with massive amounts of S3 objects in a single bucket, so who knows.
 
-key_downloader.py will download the files that are mentioned in the <key>s in the results.xml file.
+key_downloader.py will download the files that are mentioned in the \<key>s in the results.xml file.
 
 So basically, bucket_scraper.py is for downloading a list of files, and key_downloader.py downloads the files that are in the list.
 
