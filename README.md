@@ -3,7 +3,7 @@ A tool for scraping S3 buckets on AWS.
 
 Proof of concept security tool. 
 
-Don't use it for buckets you're not allowed to access.
+Don't use it for buckets you're not allowed to access!
 
 ## Dependencies
 
@@ -12,7 +12,7 @@ Don't use it for buckets you're not allowed to access.
 
 ## How to use it
 
-There are two programs: one is the one that scrapes S3 bucket XML, and the other will download files in keys, such as if there's a bucket for images.
+There are two programs: one is the one that scrapes S3 bucket XML, and the other will download files in keys, such as if there's a bucket for uploads.
 
 This tool will not help you find S3 buckets. You need to do that yourself.
 
