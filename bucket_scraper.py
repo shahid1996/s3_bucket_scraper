@@ -40,8 +40,9 @@ def main():
     else:
         print("Error: invalid number of command line arguments.")
         print("There are 2 ways to use this program:")
-        print("1. bucket_scraper.py example.com/s3/ 1234")
-        print("2. bucket_scraper.py example.com/s3/")
+        print("1. bucket_scraper.py example.com/s3 1234")
+        print("2. bucket_scraper.py example.com/s3")
+        print("Do not put a slash at the end, as it could cause problems.")
         print("Args are the S3 bucket and optional max-keys value.")
         exit(1)
     #proceed with building URL
