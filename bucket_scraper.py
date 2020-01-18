@@ -5,6 +5,21 @@
 import sys
 import requests
 
+#file-writing function
+#can be used for writing a string or response
+#example response usage:
+#safe_write("results.xml", response.text)
+def safe_write(filename, data):
+    try:
+        write_file = open(filename, "w")
+        write_file.write(data)
+        write_file.close()
+    except IOError as e:
+        print("IO exception when writing to " + filename + ":")
+        print(e.args)
+        sys.exit(1)
+
+#main function
 def main():
     #variables for the request
     number_of_args = 0
@@ -42,6 +57,7 @@ def main():
     try:
         response = requests.get(final_url, headers=headers)
     except requests.RequestException as e:
+        print("Request exception:")
         print(e.args)
         sys.exit(1)
     status = response.status_code
@@ -55,17 +71,16 @@ def main():
     else:
         #proceeding with the program
         print("Response to HTTP request was good")
+
         #writing the file to results.xml
-        results_file = open("results.xml", "w")
-        results_file.write(response.text)
-        results_file.close()
+        safe_write("results.xml", response.text)
         print("successfully wrote results.xml")
+
         #make a note of the bucket in bucket.txt
-        bucket_file = open("bucket.txt", "w")
-        bucket_file.write(bucket)
-        bucket_file.close()
+        safe_write("bucket.txt", bucket)
+        
         print("Wrote to bucket file (keeps track for key_downloader)")
-    
+
 
 
     
