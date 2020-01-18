@@ -5,6 +5,11 @@ Proof of concept security tool.
 
 Don't use it for buckets you're not allowed to access.
 
+## Dependencies
+
+- Python 3
+- requests module for Python (pip install requests)
+
 ## How to use it
 
 There are two programs: one is the one that scrapes S3 bucket XML, and the other will download files in keys, such as if there's a bucket for images.
