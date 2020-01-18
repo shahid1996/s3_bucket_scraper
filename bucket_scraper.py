@@ -5,14 +5,35 @@
 import sys
 
 def main():
-    if (len(sys.argv) != 3):
-        print("Error: invalid number of command line args")
-        print("Use it like this: bucket_scraper.py example.com 1234")
-        print("First arg you provide to it is the S3 bucket.\nAnd the second is the max-keys value.")
-        exit(1)
+    #variables for the request
+    number_of_args = 0
+    max_keys = 1000
+    bucket = ""
+    final_url = ""
 
-    print(sys.argv[1])
-    print(sys.argv[2])
+    #getting command line arguments    
+    if (len(sys.argv) == 2):
+        number_of_args = 2
+        print("2 args means you only specified the bucket and not the max-keys")
+        bucket = sys.argv[1]
+        print("bucket: " + bucket)
+    elif (len(sys.argv) == 3):
+        number_of_args = 3
+        print("specified both the domain and max-keys")
+        bucket = sys.argv[1]
+        max_keys = sys.argv[2]
+        print("bucket: " + bucket)
+        print("max_keys: " + max_keys)
+    else:
+        print("Error: invalid number of command line arguments.")
+        print("There are 2 ways to use this program:")
+        print("1. bucket_scraper.py example.s3.amazonaws.com 1234")
+        print("2. bucket_scraper.py example.s3.amazonaws.com")
+        print("Args are the S3 bucket and optional max-keys value.")
+        exit(1)
+    
+
+    
 
 
 if __name__ == '__main__':

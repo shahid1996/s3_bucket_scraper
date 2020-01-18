@@ -47,12 +47,20 @@ bucket_scraper.py example.s3.amazonaws.com 123
 In the above example, example.s3.amazonaws.com is the location of the AWS S3 bucket, and 123 is the number of keys to scrape, called max-keys. If you want to get everything, you could do this:
 
 ```
-scraper.py example.s3.amazonaws.com 2147483647
+bucket_scraper.py example.s3.amazonaws.com 2147483647
 ```
 
 However, I've never tried that many (if you specify the signed 32-bit int max, there might be millions of S3 objects, though it will only download the XML if it exists, i.e. an S3 bucket with 1,000 items will still only have 1,000 items if you specify 100 million for max-keys), and there might be performance issues that way. The default is 1000, but you can use other amounts (usually).
 
 I haven't tried it with massive amounts of S3 objects in a single bucket, so who knows.
+
+You can also just use it by specifying the bucket and nothing else, like so:
+
+```
+bucket_scraper.py example.s3.amazonaws.com
+```
+
+In the above example, the max-keys value will be the default of 1000.
 
 key_downloader.py will download the files that are mentioned in the \<key>s in the results.xml file.
 
