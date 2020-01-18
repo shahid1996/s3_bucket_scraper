@@ -25,6 +25,14 @@ bucket_scraper.py
 key_downloader.py
 ```
 
+There is also an optional shell script:
+
+```
+reset.sh
+```
+
+However, reset.sh was more important for me when I was writing this program, and it might be less useful to people who are using it. It gets rid of any data stuff you've downloaded after using this program. This was useful for me when I was committing to the repo. 
+
 Data-related files and folders:
 
 ```
