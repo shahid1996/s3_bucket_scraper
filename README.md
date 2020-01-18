@@ -16,7 +16,30 @@ There are two programs: one is the one that scrapes S3 bucket XML, and the other
 
 This tool will not help you find S3 buckets. You need to do that yourself.
 
+## Quick start guide
+
 **To use this program, run bucket_scraper.py, then run key_downloader.py.**
+
+Example usage:
+
+Clone or download the repo, then cd to the repo directory, then use the following commands:
+
+Step 1:
+```
+./bucket_scraper.py example.com/s3 123
+```
+Step 2:
+```
+./key_downloader.py
+```
+And that's it! Then check key_downloads for the results.
+
+If you want to delete files that were downloaded, use this:
+```
+./reset.sh
+```
+
+## More in-depth stuff
 
 There are 2 program files in this project:
 
