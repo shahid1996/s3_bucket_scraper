@@ -37,9 +37,36 @@ def main():
     print(final_url)
     #download XML to results.xml
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+    response = ""
+    #checking if there were problems with downloading the file
+    try:
+        response = requests.get(final_url, headers=headers)
+    except requests.RequestException as e:
+        print(e.args)
+        sys.exit(1)
+    status = response.status_code
+    #HTTP 200 means OK
+    if (status != 200):
+        print("Error code: " + status)
+        sys.exit(1)
+    elif (response == ""):
+        print("Response error")
+        sys.exit(1)
+    else:
+        #proceeding with the program
+        print("Response to HTTP request was good")
+        #writing the file to results.xml
+        results_file = open("results.xml", "w")
+        results_file.write(response.text)
+        results_file.close()
+        print("successfully wrote results.xml")
+        #make a note of the bucket in bucket.txt
+        bucket_file = open("bucket.txt", "w")
+        bucket_file.write(bucket)
+        bucket_file.close()
+        print("Wrote to bucket file (keeps track for key_downloader)")
+    
 
-    response = requests.get(final_url, headers=headers)
-    print(response.content)
 
     
 
